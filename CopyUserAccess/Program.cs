@@ -31,6 +31,8 @@ try
 {
     Console.Write("Exception: ");
     Console.WriteLine(ex.Message);
+    Console.WriteLine(ex.StackTrace);
+
 } finally // finally if we never find the user we also write it to the console
 {
     if (!userFound)
