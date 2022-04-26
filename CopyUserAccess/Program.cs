@@ -30,12 +30,13 @@ try
             PrincipalContext context = new PrincipalContext(ContextType.Machine);
             GroupPrincipal group = GroupPrincipal.FindByIdentity(context, groupName);
 
-            if (group != null) // If no group is found with the name we gave the group is set to null
-                               // if the group is null we skip the next step 
+            if (group != null) // If no group is found with the name, the group is set to null
+                               // if the group is null we skip the next step ( iterating through the group members )
             {
                 foreach (Principal p in group.GetMembers()) // get all group members
                 {
                     UserPrincipal theUser = p as UserPrincipal;
+
                     // if one of the users is the user we are looking for we write it to the console
                     if (theUser.ToString() == sUser) 
                         
